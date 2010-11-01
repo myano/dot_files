@@ -1,1 +1,3 @@
 This is a repo of my dot_files that I use across several machines.
+
+On most machines the vim/ folder will work, however if it doesn't work, rename it to .vim/
