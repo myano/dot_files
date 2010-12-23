@@ -60,11 +60,12 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
+                                    { "firefox", "firefox" },
+                                    { "google-chrome", "google-chrome" },
+                                    { "opera", "opera" },
                                     { "terminal", terminal },
-                                    { "firefox", "firefox"},
-                                    { "Google-Chrome", "google-chrome"},
-                                    { "thunderbird", "thunderbird"},
-                                    { "vlc", "vlc"},
+                                    { "thunderbird", "thunderbird" },
+                                    { "vlc", "vlc" },
                                   }
 
                         })
