@@ -60,7 +60,8 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "firefox", "firefox" },
+                                    -- { "firefox", "firefox" },
+                                    { "firefox", "/home/yano/dot_files/fx" },
                                     { "google-chrome", "google-chrome" },
                                     { "opera", "opera" },
                                     { "terminal", terminal },
