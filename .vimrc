@@ -26,5 +26,4 @@ set hlsearch
 
 
 map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
-map <F4> <ESC>:NERDTreeToggle<CR>
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
