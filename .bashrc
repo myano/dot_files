@@ -31,3 +31,5 @@ fi
 # Provide a kickass prompt
 PS1='\[\033[0;36m\]$(date "+%H:%M") \[\033[01;32m\][\[\033[01;34m\]\w\[\033[01;32m\]]\n\[\033[01;34m\](\[\033[01;32m\]\u@\h\[\033[01;34m\]) $\[\033[00m\] '
 
+# custom aliases
+alias ls='ls --color=auto'
