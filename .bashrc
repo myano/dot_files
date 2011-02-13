@@ -33,3 +33,4 @@ PS1='\[\033[0;36m\]$(date "+%H:%M") \[\033[01;32m\][\[\033[01;34m\]\w\[\033[01;3
 
 # custom aliases
 alias ls='ls --color=auto'
+alias dog='dig'
