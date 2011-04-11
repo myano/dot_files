@@ -3,3 +3,4 @@ This is a repo of my dot_files that I use across several machines.
 On most machines the vim/ folder will work, however if it doesn't work, rename it to .vim/
 
 Quick way to refresh changes to Xmodmap is by running this command: xmodmap ~/.Xmodmap
+

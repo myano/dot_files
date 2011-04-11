@@ -24,7 +24,7 @@ inoremap <C-U> <C-G>u<C-U>
 syntax on
 set hlsearch
 
-source ~/dot_files/.pep8
+source /home/yano/dot_files/.pep8
 
 map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
