@@ -60,7 +60,6 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    -- { "firefox", "firefox" },
                                     { "firefox", "/home/yano/dot_files/fx" },
                                     { "google-chrome", "google-chrome --incognito" },
                                     { "openoffice", "openoffice.org" },
@@ -210,6 +209,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey,           }, "Print", function () awful.util.spawn("scrot -s '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'mv $f ~/screenshots/'") end),
     awful.key({ modkey, "Control" }, "m", function () awful.util.spawn("xscreensaver") end),
     awful.key({ modkey, "Shift"   }, "m", function () awful.util.spawn("xscreensaver-command -lock") end),
+    awful.key({ modkey, "Shift"   }, "f", function () awful.util.spawn("/home/yano/dot_files/fx") end),
+    awful.key({ modkey, "Shift"   }, "t", function () awful.util.spawn("/home/yano/dot_files/tb") end),
 
     -- end of custom keybindings
 
