@@ -1,14 +1,4 @@
 #!/usr/bin/env bash
 
-MAIL=`which thunderbird`
-
-if [[ $MAIL != "" ]]; then
-    $MAIL
-fi
-
-MAIL=`which icedove`
-
-if [[ $MAIL != "" ]]; then
-    $MAIL
-fi
+thunderbird || icedove
 
