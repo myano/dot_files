@@ -66,7 +66,7 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                     { "openoffice", "openoffice.org" },
                                     { "opera", "opera" },
                                     { "terminal", terminal },
-                                    { "thunderbird", "thunderbird" },
+                                    { "thunderbird", "/home/yano/dot_files/tb" },
                                     { "vlc", "vlc" },
                                   }
 
@@ -208,8 +208,10 @@ globalkeys = awful.util.table.join(
     awful.key({                   }, "Print", function () awful.util.spawn("scrot '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'mv $f ~/screenshots/'") end),
    
     awful.key({ modkey,           }, "Print", function () awful.util.spawn("scrot -s '%Y-%m-%d-%H-%M-%S_$wx$h.png' -e 'mv $f ~/screenshots/'") end),
-    awful.key({ modkey, "Control" }, "m", function () awful.util.spawn("gnome-screensaver") end),
-    awful.key({ modkey, "Shift"   }, "m", function () awful.util.spawn("gnome-screensaver-command -l") end),
+    awful.key({ modkey, "Control" }, "m", function () awful.util.spawn("xscreensaver") end),
+    awful.key({ modkey, "Shift"   }, "m", function () awful.util.spawn("xscreensaver-command -lock") end),
+    -- awful.key({ modkey, "Control" }, "m", function () awful.util.spawn("gnome-screensaver") end),
+    -- awful.key({ modkey, "Shift"   }, "m", function () awful.util.spawn("gnome-screensaver-command -l") end),
 
 
     awful.key({ modkey, "Control" }, "r", awesome.restart),
