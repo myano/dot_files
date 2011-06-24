@@ -8,9 +8,6 @@
 ## general settings
 ########################################
 
-# new files default to only owner having rwx
-umask 077
-
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -59,11 +56,7 @@ elif [[ $TERM == "screen" ]]; then
 fi
 
 # Provide a kickass prompt
-if [[ "$EUID" == "0" ]]; then
-    PS1='\[\033[0;36m\]$(date "+%H:%M") \[\033[01;32m\][\[\033[01;31m\]\w\[\033[01;32m\]]\n\[\033[01;31m\](\[\033[01;32m\]\u@\h\[\033[01;31m\]) #\[\033[00m\] '
-else
-    PS1='\[\033[0;36m\]$(date "+%H:%M") \[\033[01;32m\][\[\033[01;34m\]\w\[\033[01;32m\]]\n\[\033[01;34m\](\[\033[01;32m\]\u@\h\[\033[01;34m\]) $\[\033[00m\] '
-fi
+PS1='\[\033[0;36m\]$(date "+%H:%M") \[\033[01;32m\][\[\033[01;34m\]\w\[\033[01;32m\]]\n\[\033[01;34m\](\[\033[01;32m\]\u@\h\[\033[01;34m\]) $\[\033[00m\] '
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
@@ -104,4 +97,4 @@ alias ls='ls --color=auto -h'
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -CF'
-
+alias gg='git fetch Kays && git merge --no-ff sophia-2.0 Kays/sophia-2.0 && git push origin sophia-2.0'
