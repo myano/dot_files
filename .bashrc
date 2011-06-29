@@ -8,6 +8,8 @@
 ## general settings
 ########################################
 
+umask 002
+
 # if not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
