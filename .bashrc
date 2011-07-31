@@ -99,4 +99,4 @@ alias ls='ls --color=auto -h'
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -CF'
-alias gg='git fetch Kays && git merge --no-ff sophia-2.0 Kays/sophia-2.0 && git push origin sophia-2.0'
+xmodmap ~/.Xmodmap
