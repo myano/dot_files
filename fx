@@ -1,1 +1,1 @@
-LD_PRELOAD=/home/yano/dot_files/mymemcpy.so firefox
+/home/yano/firefox/firefox || firefox
