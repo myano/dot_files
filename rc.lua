@@ -211,6 +211,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "m", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Shift"   }, "f", function () awful.util.spawn("/home/yano/dot_files/fx") end),
     awful.key({ modkey, "Shift"   }, "t", function () awful.util.spawn("/home/yano/dot_files/tb") end),
+    awful.key({ modkey, "Shift"   }, "g", function () awful.util.spawn("google-chrome --incognito") end),
 
     -- end of custom keybindings
 
@@ -356,3 +357,4 @@ end)
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+awful.util.spawn_with_shell("xscreensaver -no-splash")

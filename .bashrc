@@ -99,3 +99,4 @@ alias ls='ls --color=auto -h'
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -CF'
+source ~/.bashrc_work
