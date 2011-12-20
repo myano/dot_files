@@ -106,6 +106,6 @@ alias l='ls -CF'
 alias uu='sudo aptitude update; sudo aptitude upgrade'
 
 ## if a .bashrc for work exists, source it
-if [ -x ~/.bashrc_work ]; then
+if [ -f ~/.bashrc_work ]; then
     source ~/.bashrc_work
 fi
