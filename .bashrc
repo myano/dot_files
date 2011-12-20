@@ -40,6 +40,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+
 ########################################
 ## environmental variables
 ########################################
@@ -80,6 +81,7 @@ fi
 # enable sudo completion
 complete -cf sudo
 
+
 ########################################
 ## aliases
 ########################################
@@ -108,4 +110,15 @@ alias uu='sudo aptitude update; sudo aptitude upgrade'
 ## if a .bashrc for work exists, source it
 if [ -f ~/.bashrc_work ]; then
     source ~/.bashrc_work
+fi
+
+
+########################################
+## virtualenv
+########################################
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=~/virtual_envs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+    source /usr/local/bin/virtualenvwrapper.sh
 fi
