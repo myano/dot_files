@@ -95,8 +95,17 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+if [ -f /usr/bin/colordiff ]; then
+    alias diff='colordiff'
+fi
+
 alias ls='ls --color=auto -h'
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -CF'
-source ~/.bashrc_work
+alias uu='sudo aptitude update; sudo aptitude upgrade'
+
+## if a .bashrc for work exists, source it
+if [ -x ~/.bashrc_work ]; then
+    source ~/.bashrc_work
+fi
