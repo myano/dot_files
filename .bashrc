@@ -105,7 +105,10 @@ alias ls='ls --color=auto -h'
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -CF'
+alias gcc='colorgcc'
 alias uu='sudo aptitude update; sudo aptitude upgrade'
+alias idle='ssh -fCND 127.0.0.1:54321 idle'
+alias de='ssh -fCND 127.0.0.1:12345 de'
 
 ## if a .bashrc for work exists, source it
 if [ -f ~/.bashrc_work ]; then
