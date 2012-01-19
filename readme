@@ -4,4 +4,4 @@ On most machines the vim/ folder will work, however if it doesn't work, rename i
 
 Quick way to refresh changes to Xmodmap is by running this command: xmodmap ~/.Xmodmap
 
-To symlink everything, assuming I'm using the username 'yano' run the following command: ln -s /home/yano/dot_files/.bashrc /home/yano/.bashrc && ln -s /home/yano/dot_files/.vimrc /home/yano/.vimrc && ln -s /home/yano/dot_files/vim /home/yano/.vim && ln -s /home/yano/dot_files/.Xmodmap /home/yano/.Xmodmap && ln -s /home/yano/dot_files/.gitconfig /home/yano/.gitconfig
+To symlink everything, assuming I'm using the username 'yano' run the following command: ln -s ~/dot_files/.bashrc ~/.bashrc && ln -s ~/dot_files/.vimrc ~/.vimrc && ln -s ~/dot_files/vim ~/.vim && ln -s ~/dot_files/.xmodmap ~/.xmodmap && ln -s ~/dot_files/.gitconfig ~/.gitconfig
