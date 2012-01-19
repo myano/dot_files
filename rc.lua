@@ -213,6 +213,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "f", function () awful.util.spawn("/home/yano/dot_files/fx") end),
     awful.key({ modkey, "Shift"   }, "t", function () awful.util.spawn("/home/yano/dot_files/tb") end),
     awful.key({ modkey, "Shift"   }, "g", function () awful.util.spawn("google-chrome --incognito") end),
+    awful.key({         "Control" }, "q", function () end),
 
     -- end of custom keybindings
 
