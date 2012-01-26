@@ -59,7 +59,11 @@ elif [[ $TERM == "screen" ]]; then
 fi
 
 # Provide a kickass prompt
-PS1='\[\033[0;36m\]$(date "+%H:%M:%S") \[\033[01;32m\][\[\033[01;34m\]\w\[\033[01;32m\]]\n\[\033[01;34m\](\[\033[01;32m\]\u@\h\[\033[01;34m\]) $\[\033[00m\] '
+if [[ $EUID == "0" ]]; then
+    PS1='\[\033[0;36m\]$(date "+%H:%M") \[\033[01;32m\][\[\033[01;31m\]\w\[\033[01;32m\]]\n\[\033[01;31m\](\[\033[01;32m\]\u@\h\[\033[01;31m\]) #\[\033[00m\] '
+else
+    PS1='\[\033[0;36m\]$(date "+%H:%M:%S") \[\033[01;32m\][\[\033[01;34m\]\w\[\033[01;32m\]]\n\[\033[01;34m\](\[\033[01;32m\]\u@\h\[\033[01;34m\]) $\[\033[00m\] '
+fi
 
 # set variable identifying the chroot you work in (used in the prompt below)
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
