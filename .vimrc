@@ -37,6 +37,7 @@ au Filetype tex set spell
 au Filetype tex set makeprg=pdflatex\ \-file\-line\-error\ \-interaction=nonstopmode\ $*\\\|\ grep\ \-P\ ':\\d{1,5}:\ '
 au Filetype tex set errorformat=%f:%l:\ %m
 
+" Force myself to use hjkl rather than arrow keys
 nnoremap <expr> <Up> ((bufname("%") is "[Command Line]")?("\<Up>"):(""))
 nnoremap <expr> <Down> ((bufname("%") is "[Command Line]")?("\<Down>"):(""))
 nnoremap <expr> <Left> ((bufname("%") is "[Command Line]")?("\<Left>"):(""))
