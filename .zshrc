@@ -105,6 +105,7 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias vv="cd /dev/shm/"
+alias mc="java -jar ~/downloads/minecraft.jar"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  set default flags
