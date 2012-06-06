@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-/home/yano/thunderbird/thunderbird || thunderbird || icedove
+sudo -u yano.firefox -H /home/yano.firefox/thunderbird/thunderbird
 

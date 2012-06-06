@@ -111,9 +111,9 @@ alias mc="java -jar ~/downloads/minecraft.jar"
 #  set default flags
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-alias ls="ls --color=auto -h  --group-directories-first"
-alias la="ls -A --color=auto -h --group-directories-first"
-alias ll="ls -lA --color=auto -h  --group-directories-first"
+alias ls="ls --color=yes -h"
+alias la="ls -A --color=yes -h"
+alias ll="ls -lA --color=yes -h"
 alias du="du -hs"
 alias df="df -h"
 alias grep="grep -IR --color=yes -D skip --exclude-dir=.git"
