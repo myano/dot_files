@@ -134,12 +134,12 @@ else
 fi
 if [[ $DISTRO == "Debian" || $DISTRO == "Ubuntu" ]]; then
     alias kb="dpkg -S"
-    alias kc="sudo apt-get --purge autoremove"
-    alias ki="sudo apt-get install"
+    alias kc="sudo aptitude --purge autoremove"
+    alias ki="sudo aptitude install"
     alias kl="dpkg -l"
-    alias kr="sudo apt-get --purge remove"
-    alias ks="apt-cache search"
-    alias ku="sudo apt-get update && sudo apt-get upgrade"
+    alias kr="sudo aptitude --purge remove"
+    alias ks="aptitude search"
+    alias ku="sudo aptitude update && sudo aptitude upgrade"
     alias kw="apt-cache show"
 elif [[ $DISTRO == "Arch" ]]; then
     alias kb="pacman -Qo"
