@@ -119,8 +119,9 @@ alias df="df -h"
 alias grep="grep -IR --color=yes"
 alias zgrep="zgrep -a"
 alias gcc='colorgcc'
-alias idle='ssh -c blowfish -fXCND 127.0.0.1:54321 idle'
-alias de='ssh -c blowfish -fXCND 127.0.0.1:12345 de'
+alias idle='ssh -2 -c blowfish -fXND 127.0.0.1:54321 idle'
+alias chunk='ssh -2 -c blowfish -fND 127.0.0.1:54322 chunk'
+alias de='ssh -c blowfish -fCND 127.0.0.1:12345 de'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  package management
