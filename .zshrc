@@ -116,10 +116,11 @@ alias la="ls -A --color=yes -h"
 alias ll="ls -lA --color=yes -h"
 alias du="du -hs"
 alias df="df -h"
-alias grep="grep -IR --color=yes -D skip --exclude-dir=.git"
+alias grep="grep -IR --color=yes"
+alias zgrep="zgrep -a"
 alias gcc='colorgcc'
-alias idle='ssh -fCND 127.0.0.1:54321 idle'
-alias de='ssh -fCND 127.0.0.1:12345 de'
+alias idle='ssh -c blowfish -fXCND 127.0.0.1:54321 idle'
+alias de='ssh -c blowfish -fXCND 127.0.0.1:12345 de'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  package management
@@ -134,12 +135,12 @@ else
 fi
 if [[ $DISTRO == "Debian" || $DISTRO == "Ubuntu" ]]; then
     alias kb="dpkg -S"
-    alias kc="sudo apt-get --purge autoremove"
-    alias ki="sudo apt-get install"
+    alias kc="sudo aptitude --purge autoremove"
+    alias ki="sudo aptitude install"
     alias kl="dpkg -l"
-    alias kr="sudo apt-get --purge remove"
-    alias ks="apt-cache search"
-    alias ku="sudo apt-get update && sudo apt-get upgrade"
+    alias kr="sudo aptitude --purge remove"
+    alias ks="aptitude search"
+    alias ku="sudo aptitude update && sudo aptitude upgrade"
     alias kw="apt-cache show"
 elif [[ $DISTRO == "Arch" ]]; then
     alias kb="pacman -Qo"
