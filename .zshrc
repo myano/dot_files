@@ -108,6 +108,7 @@ alias vv="cd /dev/shm/"
 alias mc="java -jar ~/downloads/minecraft.jar"
 alias stall='ssh -2 -c blowfish -fXND 127.0.0.1:54321 stall'
 alias de='ssh -c blowfish -fCND 127.0.0.1:12345 de'
+alias home='ssh -c blowfish -fCND 127.0.0.1:30311 home'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  set default flags
@@ -199,6 +200,9 @@ else
     start_agent;
 fi
 
+## allow yano.firefox to create X11 windows for Firefox and other apps
 xhost +SI:localuser:yano.firefox &> /dev/null
-
-setopt histignorespace
+## allow capability to compose non-english characters easily
+setxkbmap -option compose:ralt
+## enable root to start X11 windows
+xhost +local:root &> /dev/null
