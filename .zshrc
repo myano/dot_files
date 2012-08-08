@@ -14,7 +14,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="yano"
 
 # oh-my-zsh plugins
-plugins=(git python _pip battery)
+plugins=(git python _pip battery git-flow virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -167,11 +167,10 @@ fi
 # virtualenv
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-export WORKON_HOME=~/virtual_envs
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.6
+export WORKON_HOME=~/.virtualenvs
+export PROJECT_HOME=$HOME/dev
+export VIRTUALENV_ROOT=$WORKON_HOME
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # ssh-agent
