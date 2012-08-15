@@ -106,9 +106,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias vv="cd /dev/shm/"
 alias mc="java -jar ~/downloads/minecraft.jar"
-alias stall='ssh -2 -c blowfish -fXND 127.0.0.1:54321 stall'
-alias de='ssh -c blowfish -fCND 127.0.0.1:12345 de'
-alias home='ssh -c blowfish -fCND 127.0.0.1:30311 home'
+alias stall='ssh -2 -fXND 127.0.0.1:54321 stall'
+alias de='ssh -2 -fXND 127.0.0.1:12345 dedi'
+alias home='ssh -2 -fXND 127.0.0.1:30311 home'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  set default flags
@@ -122,6 +122,8 @@ alias df="df -h"
 alias grep="grep -IR --color=yes"
 alias zgrep="zgrep -a"
 alias gcc='colorgcc'
+alias mv='mv -i'
+alias cp='cp -i'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  package management
@@ -201,8 +203,7 @@ else
 fi
 
 ## allow yano.firefox to create X11 windows for Firefox and other apps
-xhost +SI:localuser:yano.firefox &> /dev/null
-## allow capability to compose non-english characters easily
-setxkbmap -option compose:ralt
+xhost +SI:localuser:yano.firefox > /dev/null
 ## enable root to start X11 windows
-xhost +local:root &> /dev/null
+xhost +si:localuser:root > /dev/null
+xhost +local:root > /dev/null
