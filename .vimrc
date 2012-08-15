@@ -9,6 +9,11 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set autoindent
+set number
+set encoding=utf-8
+set list
+set listchars=tab:>·,trail:·,extends:…,precedes:…,nbsp:&
+
 
 set t_Co=256
 colorscheme ir_black

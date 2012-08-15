@@ -14,7 +14,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="yano"
 
 # oh-my-zsh plugins
-plugins=(git python _pip battery)
+plugins=(git python _pip battery git-flow virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,7 +47,7 @@ zle -N prepend-vim
 
 # cd into a directory then immediately ls
 cds() {
-    cd $1 && ls
+    cd $1 && ls -hal
 }
 
 # ==========================================================================
@@ -106,6 +106,9 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias vv="cd /dev/shm/"
 alias mc="java -jar ~/downloads/minecraft.jar"
+alias stall='ssh -2 -c blowfish -fXND 127.0.0.1:54321 stall'
+alias de='ssh -c blowfish -fCND 127.0.0.1:12345 de'
+alias home='ssh -c blowfish -fCND 127.0.0.1:30311 home'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  set default flags
@@ -119,8 +122,6 @@ alias df="df -h"
 alias grep="grep -IR --color=yes"
 alias zgrep="zgrep -a"
 alias gcc='colorgcc'
-alias idle='ssh -c blowfish -fXCND 127.0.0.1:54321 idle'
-alias de='ssh -c blowfish -fXCND 127.0.0.1:12345 de'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  package management
@@ -166,11 +167,10 @@ fi
 # virtualenv
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-export WORKON_HOME=~/virtual_envs
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.6
+export WORKON_HOME=~/.virtualenvs
+export PROJECT_HOME=$HOME/dev
+export VIRTUALENV_ROOT=$WORKON_HOME
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # ssh-agent
@@ -199,4 +199,9 @@ else
     start_agent;
 fi
 
+## allow yano.firefox to create X11 windows for Firefox and other apps
 xhost +SI:localuser:yano.firefox &> /dev/null
+## allow capability to compose non-english characters easily
+setxkbmap -option compose:ralt
+## enable root to start X11 windows
+xhost +local:root &> /dev/null
