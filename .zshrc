@@ -202,7 +202,7 @@ else
 fi
 
 ## allow yano.firefox to create X11 windows for Firefox and other apps
-xhost +SI:localuser:yano.firefox > /dev/null
+xhost +SI:localuser:yano.firefox 2> /dev/null
 ## enable root to start X11 windows
-xhost +si:localuser:root > /dev/null
-xhost +local:root > /dev/null
+xhost +si:localuser:root 2> /dev/null
+xhost +local:root 2> /dev/null
