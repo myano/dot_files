@@ -54,3 +54,5 @@ inoremap <expr> <Right> ((bufname("%") is "[Command Line]")?("\<Right>"):(""))
 
 command! W w
 command! Q q
+command! Wq wq
+command! WQ wq
