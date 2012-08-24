@@ -207,3 +207,5 @@ xhost +SI:localuser:yano.firefox > /dev/null
 ## enable root to start X11 windows
 xhost +si:localuser:root > /dev/null
 xhost +local:root > /dev/null
+
+

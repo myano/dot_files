@@ -16,7 +16,7 @@ set listchars=tab:>·,trail:·,extends:…,precedes:…,nbsp:&
 
 
 set t_Co=256
-colorscheme ir_black
+" colorscheme ir_black
 
 set ruler
 
