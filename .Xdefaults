@@ -1,0 +1,6 @@
+URxvt.font: xft:Inconsolata:size=13
+URxvt.background: black
+URxvt.foreground: white
+URxvt.scrollBar: False
+URxvt.cursorColor: green
+

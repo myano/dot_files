@@ -51,3 +51,6 @@ inoremap <expr> <Up> ((bufname("%") is "[Command Line]")?("\<Up>"):(""))
 inoremap <expr> <Down> ((bufname("%") is "[Command Line]")?("\<Down>"):(""))
 inoremap <expr> <Left> ((bufname("%") is "[Command Line]")?("\<Left>"):(""))
 inoremap <expr> <Right> ((bufname("%") is "[Command Line]")?("\<Right>"):(""))
+
+command! W w
+command! Q q

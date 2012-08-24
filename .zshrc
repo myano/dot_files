@@ -109,6 +109,7 @@ alias mc="java -jar ~/downloads/minecraft.jar"
 alias stall='ssh -2 -fXND 127.0.0.1:54321 stall'
 alias de='ssh -2 -fXND 127.0.0.1:12345 dedi'
 alias home='ssh -2 -fXND 127.0.0.1:30311 home'
+alias amz='ssh -2 -fND 127.0.0.1:54322 -i ~/.ssh/msyssh.pem amz1'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  set default flags
