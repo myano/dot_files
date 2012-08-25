@@ -1,0 +1,20 @@
+cd ~
+infocmp -L rxvt-unicode > rxvt-unicode.terminfo
+
+vi rxvt-unicode.terminfo
+# Change the following from:
+#
+#    lines_of_memory#0, max_colors#88, max_pairs#256,
+#
+# to:
+#
+#    lines_of_memory#0, max_colors#256, max_pairs#32767
+
+# Make .terminfo dir if you don't already have it
+install -d .terminfo
+
+# Rebuild terminfo for rxvt-unicode
+tic -o .terminfo/ rxvt-unicode.terminfo
+
+# Cleanup
+rm rxvt-unicode.terminfo
