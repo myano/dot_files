@@ -13,7 +13,7 @@ beautiful.init("/home/yano/dot_files/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 -- terminal = "gnome-terminal"
-terminal = "urxvt"
+terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
