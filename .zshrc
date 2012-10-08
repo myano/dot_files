@@ -14,7 +14,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="yano"
 
 # oh-my-zsh plugins
-plugins=(git python _pip battery git-flow virtualenvwrapper)
+plugins=(git python _pip battery git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
