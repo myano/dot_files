@@ -14,25 +14,26 @@ set encoding=utf-8
 set list
 set listchars=tab:>·,trail:·,extends:…,precedes:…,nbsp:&
 
-
 set t_Co=256
 colorscheme ir_black
 
 set ruler
 
-filetype plugin indent on
-
 map Q gq
 
 inoremap <C-U> <C-G>u<C-U>
 
+call pathogen#infect()
 syntax on
+filetype plugin indent on
+
 set hlsearch
 
 source ~/dot_files/.pep8
 
 map <buffer> <S-e> :w<CR>:!/usr/bin/env python % <CR>
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+nnoremap <F3> :set listchars=<CR>
 
 nnoremap <silent> <up> g<up>
 nnoremap <silent> <down> g<down>

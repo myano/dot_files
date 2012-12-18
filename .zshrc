@@ -98,8 +98,6 @@ alias finds="find / -name 2>/dev/null"
 
 alias s="sudo"
 alias v="vim"
-alias :wq="exit"
-alias :q="exit"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
@@ -110,6 +108,7 @@ alias stall='ssh -2 -fXND 127.0.0.1:54321 stall'
 alias de='ssh -2 -fXND 127.0.0.1:12345 dedi'
 alias home='ssh -2 -fXND 127.0.0.1:30311 home'
 alias amz='ssh -2 -fND 127.0.0.1:54322 -i ~/.ssh/msyssh.pem amz1'
+alias fish='ssh -2 -fND 127.0.0.1:54312 fish'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  set default flags
@@ -120,8 +119,9 @@ alias la="ls -A --color=yes -h"
 alias ll="ls -lA --color=yes -h"
 alias du="du -hs"
 alias df="df -h"
-alias grep="grep -IR --color=yes"
-alias zgrep="zgrep -a"
+alias grep="grep --color=yes"
+alias zgrep="zgrep --color=yes"
+alias egrep="egrep --color=yes"
 alias gcc='colorgcc'
 alias mv='mv -i'
 alias cp='cp -i'
@@ -134,10 +134,12 @@ if [ -f /etc/slackware-version ]; then
     DISTRO="Slackware"
 elif [ -f /etc/gentoo-release ]; then
     DISTRO="Gentoo"
+elif [ -f /etc/linuxmint/info ]; then
+    DISTRO="Mint"
 else
     DISTRO=$(awk '/[:alpha:]/ { print $1; exit }' /etc/issue 2>/dev/null)
 fi
-if [[ $DISTRO == "Debian" || $DISTRO == "Ubuntu" ]]; then
+if [[ $DISTRO == "Debian" || $DISTRO == "Ubuntu" || $DISTRO == "Mint" ]]; then
     alias kb="dpkg -S"
     alias kc="sudo aptitude --purge autoremove"
     alias ki="sudo aptitude install"
@@ -196,7 +198,7 @@ if [ -f "${SSH_ENV}" ]; then
     . "${SSH_ENV}" > /dev/null
     #ps ${SSH_AGENT_PID} doesn't work under cywgin
     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        start_agent;
+       start_agent;
     }
 else
     start_agent;
@@ -207,3 +209,9 @@ xhost +SI:localuser:yano.firefox > /dev/null
 ## enable root to start X11 windows
 xhost +si:localuser:root > /dev/null
 xhost +local:root > /dev/null
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Fix AutoCorrection
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+unsetopt correct_all
