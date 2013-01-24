@@ -105,10 +105,10 @@ alias .....="cd ../../../.."
 alias vv="cd /dev/shm/"
 alias mc="java -jar ~/downloads/minecraft.jar"
 alias stall='ssh -2 -fXND 127.0.0.1:54321 stall'
-alias de='ssh -2 -fXND 127.0.0.1:12345 dedi'
+alias de='ssh -2 -fXND 127.0.0.1:54322 de'
 alias home='ssh -2 -fXND 127.0.0.1:30311 home'
-alias amz='ssh -2 -fND 127.0.0.1:54322 -i ~/.ssh/msyssh.pem amz1'
-alias fish='ssh -2 -fND 127.0.0.1:54312 fish'
+alias fish='ssh -2 -fND 127.0.0.1:54323 fish'
+alias dedi='ssh -2 -fND 127.0.0.1:54324 dedi'
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  set default flags
@@ -157,7 +157,7 @@ elif [[ $DISTRO == "Arch" ]]; then
     alias ks="pacman -Ss"
     alias ku="sudo pacman -Syu"
     alias kw="pacman -Si"
-elif [[ $DISTRO == "Fedora" ]]; then
+elif [[ $DISTRO == "Fedora" || $DISTRO == "CentOS" ]]; then
     alias kb="rpm -qa"
     alias kc="sudo yum clean all"
     alias ki="sudo yum install"
