@@ -110,6 +110,10 @@ alias home='ssh -2 -fXND 127.0.0.1:30311 home'
 alias fish='ssh -2 -fND 127.0.0.1:54323 fish'
 alias dedi='ssh -2 -fND 127.0.0.1:54324 dedi'
 
+if [ -f /usr/bin/colordiff ]; then
+    alias diff='colordiff'
+fi
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 #  set default flags
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 

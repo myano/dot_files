@@ -212,7 +212,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "m", function () awful.util.spawn("xscreensaver-command -lock") end),
     awful.key({ modkey, "Shift"   }, "f", function () awful.util.spawn("sudo -u yano.firefox -H /home/yano.firefox/firefox/firefox") end),
     awful.key({ modkey, "Shift"   }, "t", function () awful.util.spawn("sudo -u yano.firefox -H /home/yano.firefox/thunderbird/thunderbird") end),
-    awful.key({ modkey, "Shift"   }, "g", function () awful.util.spawn("sudo -u yano.firefox -H /usr/bin/google-chrome --incognito") end),
+    awful.key({ modkey, "Shift"   }, "g", function () awful.util.spawn("sudo -u yano.firefox -H /usr/bin/google-chrome") end),
     awful.key({         "Control" }, "q", function () end),
 
     -- end of custom keybindings
