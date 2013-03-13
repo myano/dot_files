@@ -103,12 +103,15 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias vv="cd /dev/shm/"
+alias lii='ls -hal | grep -i'
 alias mc="java -jar ~/downloads/minecraft.jar"
 alias stall='ssh -2 -fXND 127.0.0.1:54321 stall'
 alias de='ssh -2 -fXND 127.0.0.1:54322 de'
 alias home='ssh -2 -fXND 127.0.0.1:30311 home'
 alias fish='ssh -2 -fND 127.0.0.1:54323 fish'
 alias dedi='ssh -2 -fND 127.0.0.1:54324 dedi'
+alias chmow="chmod"
+alias chmog="chmod"
 
 if [ -f /usr/bin/colordiff ]; then
     alias diff='colordiff'
