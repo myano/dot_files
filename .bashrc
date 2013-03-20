@@ -109,6 +109,7 @@ alias ls='ls --color=auto -h'
 alias ll='ls -la'
 alias la='ls -a'
 alias l='ls -CF'
+alias lii='ls -hal | grep -i'
 alias gcc='colorgcc'
 alias grep='grep -R --color=yes'
 alias ta='tmux attch -d'
@@ -155,4 +156,4 @@ if [ -f "${SSH_ENV}" ]; then
      }
 else
      start_agent;
-fi 
+fi
