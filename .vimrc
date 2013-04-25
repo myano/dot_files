@@ -14,8 +14,6 @@ set encoding=utf-8
 set list
 set listchars=tab:>·,trail:·,extends:…,precedes:…,nbsp:&
 
-autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
-
 set t_Co=256
 colorscheme ir_black
 
