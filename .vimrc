@@ -1,3 +1,14 @@
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+call pathogen#infect()
+
+syntax on
+filetype plugin indent on
+
+set foldmethod=indent
+set foldlevel=99
+
 set nocompatible
 set backspace=indent,eol,start
 set nobackup
@@ -17,15 +28,15 @@ set listchars=tab:>·,trail:·,extends:…,precedes:…,nbsp:&
 set t_Co=256
 colorscheme ir_black
 
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
 set ruler
 
 map Q gq
 
 inoremap <C-U> <C-G>u<C-U>
-
-call pathogen#infect()
-syntax on
-filetype plugin indent on
 
 set hlsearch
 
