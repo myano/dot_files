@@ -214,9 +214,3 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
-
-## allow yano.firefox to create X11 windows for Firefox and other apps
-#xhost +SI:localuser:yano.firefox > /dev/null
-## enable root to start X11 windows
-#xhost +si:localuser:root > /dev/null
-#xhost +local:root > /dev/null
