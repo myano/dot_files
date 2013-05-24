@@ -107,7 +107,6 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias vv="cd /dev/shm/"
 alias lii='ls -hal | grep -i'
-alias pss='ps aux | grep -i'
 alias mc="java -jar ~/downloads/minecraft.jar"
 alias stall='ssh -2 -fXND 127.0.0.1:54321 stall'
 alias de='ssh -2 -fXND 127.0.0.1:54322 de'
@@ -214,3 +213,8 @@ if [ -f "${SSH_ENV}" ]; then
 else
     start_agent;
 fi
+
+function pss()
+{
+    ps auxf | awk 'NR == 1 || /'"${1//\//\\/}"'/'
+}
