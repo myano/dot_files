@@ -14,7 +14,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="yano"
 
 # oh-my-zsh plugins
-plugins=(git python _pip battery git-flow)
+plugins=(git git-flow)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -44,9 +44,9 @@ prepend-vim() {
 }
 zle -N prepend-vim
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  other custom functions
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # cd into a directory then immediately ls
 cds() {
@@ -57,9 +57,9 @@ cds() {
 #  environmental variables
 # ==========================================================================
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  general settings
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Sets vim as editor
 export EDITOR="vim"
@@ -77,9 +77,9 @@ fi
 # sets vim as pager
 export PAGER="sh -c \"col -b | vim -M -c 'set nonu ft=man nomod nolist titlestring=MANPAGE' -\""
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  misc
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # quick access to RAMdisk
 vv="/dev/shm/"
@@ -88,16 +88,16 @@ vv="/dev/shm/"
 #  aliases
 # ==========================================================================
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  new commands
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # search entire filesystem, ignore errors
 alias finds="find / -name 2>/dev/null"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  general short commands
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 alias s="sudo"
 alias v="vim"
@@ -115,14 +115,16 @@ alias fish='ssh -2 -fND 127.0.0.1:54323 fish'
 alias dedi='ssh -2 -fND 127.0.0.1:54324 dedi'
 alias chmow="chmod"
 alias chmog="chmod"
+alias myip="curl https://wtfismyip.com/text"
+alias rot13="tr 'a-zA-Z' 'n-za-mN-ZA-N'"
 
 if [ -f /usr/bin/colordiff ]; then
     alias diff='colordiff'
 fi
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  set default flags
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 alias ls="ls --color=yes -h"
 alias la="ls -A --color=yes -h"
@@ -136,9 +138,9 @@ alias gcc='colorgcc'
 alias mv='mv -i'
 alias cp='cp -i'
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #  package management
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if [ -f /etc/slackware-version ]; then
     DISTRO="Slackware"
@@ -182,7 +184,7 @@ fi
 # virtualenv
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.6
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
 export WORKON_HOME=~/.virtualenvs
 export PROJECT_HOME=$HOME/dev
 export VIRTUALENV_ROOT=$WORKON_HOME
@@ -224,3 +226,8 @@ function pss()
 {
     ps auxf | awk 'NR == 1 || /'"${1//\//\\/}"'/'
 }
+
+alias clippy='xclip -i -sel clip'
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
