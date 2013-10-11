@@ -68,3 +68,7 @@ command! W w
 command! Q q
 command! Wq wq
 command! WQ wq
+
+highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.* match BadWhitespace /^\t\+/
+au BufRead,BufNewFile *.* match BadWhitespace /\s\+$/
