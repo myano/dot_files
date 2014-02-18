@@ -7,16 +7,11 @@
 #  general zsh settings
 # ==========================================================================
 
-# Path to my oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+autoload -U colors && colors
 
-# Name of theme
-ZSH_THEME="yano"
+PROMPT="%{$fg[green]%}%B[%*]%{$reset_color%} %{$fg_bold[cyan]%}%B%n%{${fg_bold[blue]}%}::%{$reset_color%}%{$fg[yellow]%}%B%m%{$reset_color%} %{$fg_no_bold[magenta]%}➜ %{$reset_color%} %{${fg[green]}%}%B%3~ %{${reset_color}%} %{${fg_bold[blue]}%}»%{${reset_color}%} "
 
-# oh-my-zsh plugins
-plugins=(git git-flow)
-
-source $ZSH/oh-my-zsh.sh
+setopt histignorealldups sharehistory
 
 # shut up
 setopt nobeep
@@ -25,33 +20,30 @@ setopt nobeep
 unsetopt correct_all
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# custom zle widgets
+# completion
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# prepend sudo
-prepend-sudo() {
-    if [[ $BUFFER != "sudo "* ]]; then
-        BUFFER="sudo $BUFFER"; CURSOR+=5
-    fi
-}
-zle -N prepend-sudo
+autoload -Uz compinit
+compinit
 
-# prepend vim
-prepend-vim() {
-    if [[ $BUFFER != "vim "* ]]; then
-        BUFFER="vim $BUFFER"; CURSOR+=5
-    fi
-}
-zle -N prepend-vim
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+eval "$(dircolors -b)"
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-#  other custom functions
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
-# cd into a directory then immediately ls
-cds() {
-    cd $1 && ls -hal
-}
 
 # ==========================================================================
 #  environmental variables
@@ -65,14 +57,14 @@ cds() {
 export EDITOR="vim"
 
 # sets zsh as shell
-export SHELL="/bin/zsh"
+#export SHELL="/bin/zsh"
 
 # ensures programs know to use 256-colors
-if [[ $TERM == "xterm" ]]; then
-    export TERM="xterm-256color"
-elif [[ $TERM == "screen" ]]; then
-    export TERM="screen-256color"
-fi
+#if [[ $TERM == "xterm" ]]; then
+#    export TERM="xterm-256color"
+#elif [[ $TERM == "screen" ]]; then
+#    export TERM="screen-256color"
+#fi
 
 # sets vim as pager
 export PAGER="sh -c \"col -b | vim -M -c 'set nonu ft=man nomod nolist titlestring=MANPAGE' -\""
@@ -99,24 +91,27 @@ alias finds="find / -name 2>/dev/null"
 #  general short commands
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-alias s="sudo"
-alias v="vim"
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias vv="cd /dev/shm/"
+alias s='sudo'
+alias v='vim'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias vv='cd /dev/shm/'
 alias lii='ls -hal | grep -i'
-alias mc="java -jar ~/downloads/minecraft.jar"
+alias mc='java -jar ~/downloads/minecraft.jar'
 alias stall='ssh -2 -fXND 127.0.0.1:54321 stall'
 alias de='ssh -2 -fXND 127.0.0.1:54322 de'
 alias home='ssh -2 -fXND 127.0.0.1:30311 home'
-alias fish='ssh -2 -fND 127.0.0.1:54323 fish'
+alias fish='ssh -2 -fND 127.0.0.1:54321 fish'
 alias dedi='ssh -2 -fND 127.0.0.1:54324 dedi'
-alias chmow="chmod"
-alias chmog="chmod"
-alias myip="curl https://wtfismyip.com/text"
-alias rot13="tr 'a-zA-Z' 'n-za-mN-ZA-N'"
+alias chmow='chmod'
+alias chmog='chmod'
+alias myip='curl https://wtfismyip.com/text'
+alias myip4='curl https://ipv4.wtfismyip.com/text'
+alias myip6='curl https://ipv6.wtfismyip.com/text'
+alias rot13='tr 'a-zA-Z' 'n-za-mN-ZA-N''
+alias clippy='xclip -i -sel clip'
 
 if [ -f /usr/bin/colordiff ]; then
     alias diff='colordiff'
@@ -126,14 +121,14 @@ fi
 #  set default flags
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-alias ls="ls --color=yes -h"
-alias la="ls -A --color=yes -h"
-alias ll="ls -lA --color=yes -h"
-alias du="du -hs"
-alias df="df -h"
-alias grep="grep --color=yes"
-alias zgrep="zgrep --color=yes"
-alias egrep="egrep --color=yes"
+alias ls='ls --color=yes -h'
+alias la='ls -A --color=yes -h'
+alias ll='ls -lA --color=yes -h'
+alias du='du -hs'
+alias df='df -h'
+alias grep='grep --color=yes'
+alias zgrep='zgrep --color=yes'
+alias egrep='egrep --color=yes'
 alias gcc='colorgcc'
 alias mv='mv -i'
 alias cp='cp -i'
@@ -227,7 +222,11 @@ function pss()
     ps auxf | awk 'NR == 1 || /'"${1//\//\\/}"'/'
 }
 
-alias clippy='xclip -i -sel clip'
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+if [ -f $HOME/.zshrc-work ]; then
+    source $HOME/.zshrc-work
+fi
+
+#export LC_ALL=en_GB
