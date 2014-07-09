@@ -68,3 +68,11 @@ command! W w
 command! Q q
 command! Wq wq
 command! WQ wq
+
+highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.* match BadWhitespace /^\t\+/
+au BufRead,BufNewFile *.* match BadWhitespace /\s\+$/
+
+au BufRead,BufNewFile /etc/nginx/*,/usr/local/nginx/conf/* if &ft == '' | setfiletype nginx | endif
+
+" set backspace = 2

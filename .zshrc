@@ -130,6 +130,7 @@ alias ll="ls -lA --color=yes -h"
 alias du="du -hs"
 alias df="df -h"
 alias grep="grep --color=yes"
+alias grepp="grep --color=no"
 alias zgrep="zgrep --color=yes"
 alias egrep="egrep --color=yes"
 alias gcc='colorgcc'
@@ -156,7 +157,7 @@ if [[ $DISTRO == "Debian" || $DISTRO == "Ubuntu" || $DISTRO == "Mint" ]]; then
     alias kl="dpkg -l"
     alias kr="sudo aptitude --purge remove"
     alias ks="aptitude search"
-    alias ku="sudo aptitude update && sudo aptitude upgrade"
+    alias ku="sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade"
     alias kw="apt-cache show"
 elif [[ $DISTRO == "Arch" ]]; then
     alias kb="pacman -Qo"
@@ -182,10 +183,13 @@ fi
 # virtualenv
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.6
-export WORKON_HOME=~/.virtualenvs
-export PROJECT_HOME=$HOME/dev
+source "/usr/local/bin/virtualenvwrapper.sh"
+
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/dev/virtualenvs
 export VIRTUALENV_ROOT=$WORKON_HOME
+
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # ssh-agent
@@ -218,3 +222,9 @@ function pss()
 {
     ps auxf | awk 'NR == 1 || /'"${1//\//\\/}"'/'
 }
+
+alias myip='curl https://wtfismyip.com/text'
+alias myip4='curl https://ipv4.wtfismyip.com/text'
+
+
+[ -s "/home/yano/.nvm/nvm.sh" ] && . "/home/yano/.nvm/nvm.sh" # This loads nvm
